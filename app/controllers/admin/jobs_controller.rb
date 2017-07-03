@@ -59,6 +59,22 @@ class Admin::JobsController < ApplicationController
     end
   end
 
+  def hide
+    @job = Job.find(params[:id])
+
+    @job.hide!
+
+    redirect_to request.referer
+  end
+
+  def public
+    @job = Job.find(params[:id])
+
+    @job.public!
+
+    redirect_to request.referer
+  end
+
 
   private
 
