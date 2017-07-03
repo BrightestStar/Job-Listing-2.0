@@ -1,3 +1,13 @@
 <h1><%= @job.title %></h1>
 
 <p><%= simple_format(@job.description) %></p>
+
+<p><%= @job.wage_lower_bound %></p>
+
+<p><%= @job.wage_upper_bound %></p>
+
+<p><%= @job.contact_email %></p>
+
+<div class="">
+  <%= link_to 'Back', admin_jobs_path, class: "btn btn-primary" %>
+</div>
