@@ -1,0 +1,11 @@
+<h1>Edit job</h1>
+
+<%= simple_form_for [:admin, @job] do |f| %>
+<div class="group">
+  <%= f.input :title %>
+</div>
+<div class="group">
+  <%= f.input :description %>
+</div>
+<%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
