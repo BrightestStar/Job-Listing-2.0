@@ -2,6 +2,7 @@ class Job < ApplicationRecord
   validates :title, presence: true
 
   belongs_to :user
+  has_many :resumes
 
   def hide!
     self.is_hidden = true

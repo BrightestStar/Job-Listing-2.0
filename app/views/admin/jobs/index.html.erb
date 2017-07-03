@@ -7,7 +7,7 @@
 <table class="table table-boldered">
   <thead>
     <tr>
-      <td>职缺</td>
+      <td>职缺(投递数量)</td>
       <td>薪资下限</td>
       <td>薪资上限</td>
       <td>管理选项</td>
@@ -19,7 +19,7 @@
     <td>
       <%= render_job_status(job) %>
 
-      <%= link_to(job.title, admin_job_path(job)) %>
+      <%= link_to job.title, admin_job_path(job) %> (<%= job.resumes.count %>)
     </td>
     <td>
       <%= job.wage_lower_bound %>

@@ -1,13 +1,34 @@
 <h1><%= @job.title %></h1>
-
-<p><%= simple_format(@job.description) %></p>
-
-<p><%= @job.wage_lower_bound %></p>
-
-<p><%= @job.wage_upper_bound %></p>
-
-<p><%= @job.contact_email %></p>
-
-<div class="">
-  <%= link_to 'Back', jobs_path, class: "btn btn-primary" %>
+<%= simple_form_for @job do |f| %>
+<div class="group">
+  <h3><%= simple_format(@job.description) %></h3>
 </div>
+<div class="pull-right">
+  <%= link_to 'Back', jobs_path, class: "btn btn-default" %>
+</div>
+<div class="group">
+  <h4><%= f.label :薪资范围 %>:
+    <br>
+    <%= @job.wage_lower_bound %>
+    -
+    <%=  @job.wage_upper_bound %>
+    <h4></div>
+    <div class="group">
+      <h4><%= f.label :联系邮件 %>：
+        <br>
+        <%= @job.contact_email %>
+        <h4></div>
+        <% end %>
+        <hr>
+
+        <h2>投递简历</h2>
+        <%= simple_form_for [@job, Resume.new] do |f| %>
+        <div class="group">
+          <%= f.input :body, class: "form_control "%>
+        </div>
+        <div class="well">
+          <%= f.label :attachment %>
+          <%= f.file_field :attachment %>
+        </div>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+        <% end %>

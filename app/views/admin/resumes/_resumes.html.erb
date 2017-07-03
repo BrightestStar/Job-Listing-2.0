@@ -1,0 +1,38 @@
+<h2 class="text-center">简历明细——有
+  <%= @job.resumes.count %>
+  封简历</h2>
+<% @resumes.each do |resume| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="panel-title">
+          <p>
+            <small>Submitted
+              <strong><%= time_ago_in_words(resume.created_at) %>
+                ago</strong>
+              by
+              <%= resume.user.email %></small>
+          </p>
+        </h3>
+      </div>
+
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="trix-content">
+      <p>
+        <%= simple_format(resume.body) %>
+      </p>
+    </div>
+    <hr>
+
+    <% if resume.attachment.present? %>
+    <i class="fa fa-paperclip"></i>
+    <%= link_to("Download Resume", resume.attachment_url) %>
+  <% else %>
+    No Attachment
+    <% end %>
+  </div>
+</div>
+<% end %>

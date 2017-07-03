@@ -37,6 +37,9 @@ gem 'simple_form'
 gem 'devise'
 gem 'jquery-rails'
 gem 'font-awesome-rails'
+gem 'record_tag_helper', '~> 1.0'
+gem 'carrierwave', '~> 0.9'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
