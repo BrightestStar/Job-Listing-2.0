@@ -1,0 +1,12 @@
+<div class="pull-right">
+  <%= link_to 'New Job', new_job_path, class: "btn btn-primary" %>
+</div>
+
+
+<% @jobs.each do |job| %>
+<tr>
+  <th><%= link_to job.title, job_path(job) %></th>
+  <th><%= link_to 'Edit', edit_job_path(job) %>|<%= link_to 'Delete', job_path(job), method: :delete, data: { confirm: "Are you sure ?" } %></th>
+  <th><%= job.created_at %></th>
+</tr>
+<% end %>
