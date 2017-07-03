@@ -1,6 +1,8 @@
 class Admin::JobsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
+  before_action :admin_required
   layout "admin"
+
   def index
     @jobs = Job.all
   end
